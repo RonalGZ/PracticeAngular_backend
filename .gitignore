@@ -1,0 +1,25 @@
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
+sonar-project.properties
+.sonar/
+.mvn/
+mvnw
+mvnw.cmd

@@ -2,6 +2,7 @@ package bco.visorhc.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,11 +31,16 @@ public class BdcTarjetaController {
 		try {
 			demoList = service.listarTarjetas(nroCuenta);
 			
-			for (BdcTarjeta t : demoList) {
-			    if (t.getIdTarjeta().length() == 16) {
-			        t.setIdTarjeta(enmascararTarjeta(t.getIdTarjeta(),0,12,"******"));
-			    }
-			}
+//			for (BdcTarjeta t : demoList) {
+//			    if (t.getIdTarjeta().length() == 16) {
+//			        t.setIdTarjeta(enmascararTarjeta(t.getIdTarjeta(),0,12,"******"));
+//			    }
+//			}
+			
+			demoList.stream().filter(t-> t.getIdTarjeta().length() == 16).forEach(x->{
+				x.setIdTarjeta(enmascararTarjeta(x.getIdTarjeta(),0,12,"******"));
+			});
+
 			log.info("listarTarjetas - OK");
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -49,11 +55,16 @@ public class BdcTarjetaController {
 		List<BdcTarjeta> demoList = new ArrayList<BdcTarjeta>();
 		try {
 			demoList = service.findListaContratos(nroCuenta);
-			for (BdcTarjeta t : demoList) {
-			    if (t.getIdTarjeta().length() == 16) {
-			        t.setIdTarjeta(enmascararTarjeta(t.getIdTarjeta(),0,12,"******"));
-			    }
-			}
+//			for (BdcTarjeta t : demoList) {
+//			    if (t.getIdTarjeta().length() == 16) {
+//			        t.setIdTarjeta(enmascararTarjeta(t.getIdTarjeta(),0,12,"******"));
+//			    }
+//			}
+			
+			demoList.stream().filter(t-> t.getIdTarjeta().length() == 16).forEach(x->{
+				x.setIdTarjeta(enmascararTarjeta(x.getIdTarjeta(),0,12,"******"));
+			});
+			
 			log.info("listarContratos - OK");
 		} catch (Exception e) {
 			log.error(e.getMessage());

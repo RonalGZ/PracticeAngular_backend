@@ -67,7 +67,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		String archivoConfiguracion = "";
 		int ldap = 0;
 
-		String username = usuario + "@CD-ROSAS";
+		String username = usuario + "@GrupoTrabajo";
 		String password = clave;
 		logger.info("ruta de propiedades : " + rutaPropiedades);
 		// Comentar segun sea prod o desa
@@ -86,7 +86,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 		try {
 			DirContext authContext = new InitialDirContext(environment);
-			DirContext peopleContext = (DirContext) authContext.lookup("OU=Falabella Peru,DC=Falabella,DC=com");
+			DirContext peopleContext = (DirContext) authContext.lookup("OU=Hellsing Peru,DC=Hellsing,DC=com");
 
 			SearchControls sc = new SearchControls();
 			sc.setSearchScope(SearchControls.SUBTREE_SCOPE);

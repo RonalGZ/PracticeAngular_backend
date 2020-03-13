@@ -1,0 +1,7 @@
+llaves publicas:
+oci_key.pub
+public.pem
+
+llaves privadas:
+oci_key, oci_key.ppk - passphrase: oci (oci_key works with ssh command in linux, oci_key.ppk with putty tool)
+private.pem - passphrase: private
